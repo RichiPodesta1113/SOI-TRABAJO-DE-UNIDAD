@@ -122,12 +122,10 @@ void planificar_RR(vector<Proceso>& procesos, int quantum) {
     queue<Proceso> cola;        // Cola circular de procesos
     vector<Proceso> resultado;  // Procesos completados
     int tiempoActual = 0;
-
     // Inicializar tiempo restante
     for (auto &p : procesos) {
         p.restante = p.servicio;
     }
-
     while (!procesos.empty() || !cola.empty()) {
         // Mover procesos que ya llegaron a la cola
         for (auto it = procesos.begin(); it != procesos.end();) {
@@ -138,15 +136,12 @@ void planificar_RR(vector<Proceso>& procesos, int quantum) {
                 ++it;
             }
         }
-
         if (!cola.empty()) {
             Proceso p = cola.front(); cola.pop();
             if (p.inicio == -1) p.inicio = tiempoActual;
-
             int ejecucion = min(quantum, p.restante);
             p.restante -= ejecucion;
             tiempoActual += ejecucion;
-
             if (p.restante > 0) {
                 cola.push(p);  // Vuelve a la cola si no terminó
             } else {
