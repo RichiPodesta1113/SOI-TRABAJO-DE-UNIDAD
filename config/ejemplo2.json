@@ -1,0 +1,42 @@
+{
+  "id": 2,
+  "descripcion": "Procesos cortos (7, 3, 4) con llegadas casi simultaneas",
+  "procesos": [
+    { "pid": 1, "llegada": 0, "servicio": 7 },
+    { "pid": 2, "llegada": 1, "servicio": 3 },
+    { "pid": 3, "llegada": 2, "servicio": 4 }
+  ],
+  "cpu": {
+    "algoritmos": [
+      { "tipo": "FCFS" },
+      { "tipo": "SPN" },
+      { "tipo": "RR", "quantum": 3 }
+    ]
+  },
+  "memoria": {
+    "tam": 128,
+    "estrategia": "best-fit",
+    "solicitudes": [
+      { "pid": 1, "tam": 40 },
+      { "pid": 2, "tam": 50 },
+      { "pid": 3, "tam": 30 }
+    ]
+  },
+  "resultados": {
+    "FCFS": [
+      { "PID": 1, "Llegada": 0, "Servicio": 7, "Inicio": 0, "Fin": 7, "Respuesta": 0, "Espera": 0, "Retorno": 7 },
+      { "PID": 2, "Llegada": 1, "Servicio": 3, "Inicio": 7, "Fin": 10, "Respuesta": 6, "Espera": 6, "Retorno": 9 },
+      { "PID": 3, "Llegada": 2, "Servicio": 4, "Inicio": 10, "Fin": 14, "Respuesta": 8, "Espera": 8, "Retorno": 12 }
+    ],
+    "SPN": [
+      { "PID": 1, "Llegada": 0, "Servicio": 7, "Inicio": 0, "Fin": 7, "Respuesta": 0, "Espera": 0, "Retorno": 7 },
+      { "PID": 2, "Llegada": 1, "Servicio": 3, "Inicio": 7, "Fin": 10, "Respuesta": 6, "Espera": 6, "Retorno": 9 },
+      { "PID": 3, "Llegada": 2, "Servicio": 4, "Inicio": 10, "Fin": 14, "Respuesta": 8, "Espera": 8, "Retorno": 12 }
+    ],
+    "RR": [
+      { "PID": 1, "Llegada": 0, "Servicio": 7, "Inicio": 0, "Fin": 12, "Respuesta": 0, "Espera": 5, "Retorno": 12 },
+      { "PID": 2, "Llegada": 1, "Servicio": 3, "Inicio": 3, "Fin": 6,  "Respuesta": 2, "Espera": 2, "Retorno": 5 },
+      { "PID": 3, "Llegada": 2, "Servicio": 4, "Inicio": 6, "Fin": 13, "Respuesta": 4, "Espera": 7, "Retorno": 11 }
+    ]
+  }
+}

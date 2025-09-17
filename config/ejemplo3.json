@@ -1,0 +1,42 @@
+{
+  "id": 3,
+  "descripcion": "Procesos con CPU inactivo al inicio (6, 4, 5)",
+  "procesos": [
+    { "pid": 1, "llegada": 3, "servicio": 6 },
+    { "pid": 2, "llegada": 5, "servicio": 4 },
+    { "pid": 3, "llegada": 8, "servicio": 5 }
+  ],
+  "cpu": {
+    "algoritmos": [
+      { "tipo": "FCFS" },
+      { "tipo": "SPN" },
+      { "tipo": "RR", "quantum": 2 }
+    ]
+  },
+  "memoria": {
+    "tam": 200,
+    "estrategia": "first-fit",
+    "solicitudes": [
+      { "pid": 1, "tam": 80 },
+      { "pid": 2, "tam": 50 },
+      { "pid": 3, "tam": 90 }
+    ]
+  },
+  "resultados": {
+    "FCFS": [
+      { "PID": 1, "Llegada": 3, "Servicio": 6, "Inicio": 3, "Fin": 9, "Respuesta": 0, "Espera": 0, "Retorno": 6 },
+      { "PID": 2, "Llegada": 5, "Servicio": 4, "Inicio": 9, "Fin": 13, "Respuesta": 4, "Espera": 4, "Retorno": 8 },
+      { "PID": 3, "Llegada": 8, "Servicio": 5, "Inicio": 13, "Fin": 18, "Respuesta": 5, "Espera": 5, "Retorno": 10 }
+    ],
+    "SPN": [
+      { "PID": 1, "Llegada": 3, "Servicio": 6, "Inicio": 3, "Fin": 9, "Respuesta": 0, "Espera": 0, "Retorno": 6 },
+      { "PID": 2, "Llegada": 5, "Servicio": 4, "Inicio": 9, "Fin": 13, "Respuesta": 4, "Espera": 4, "Retorno": 8 },
+      { "PID": 3, "Llegada": 8, "Servicio": 5, "Inicio": 13, "Fin": 18, "Respuesta": 5, "Espera": 5, "Retorno": 10 }
+    ],
+    "RR": [
+      { "PID": 1, "Llegada": 3, "Servicio": 6, "Inicio": 3, "Fin": 11, "Respuesta": 0, "Espera": 2, "Retorno": 8 },
+      { "PID": 2, "Llegada": 5, "Servicio": 4, "Inicio": 5, "Fin": 13, "Respuesta": 0, "Espera": 4, "Retorno": 8 },
+      { "PID": 3, "Llegada": 8, "Servicio": 5, "Inicio": 8, "Fin": 17, "Respuesta": 0, "Espera": 4, "Retorno": 9 }
+    ]
+  }
+}
